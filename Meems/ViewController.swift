@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
 
+    @IBOutlet weak var actionbtn: UIBarButtonItem!
     @IBOutlet weak var selected_Image: UIImageView!
     
     @IBOutlet weak var toptoolbar: UIToolbar!
@@ -37,7 +38,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         
     }
     func save() {
-        //        let meemObj = MeemObject(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: self.selected_Image.image!, memedImage: generateMemedImage())
+        let meemObj = MeemObject(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: self.selected_Image.image!, memedImage: generateMemedImage())
         
         //        UIImageWriteToSavedPhotosAlbum(generateMemedImage(), self, "image:didFinishSavingWithError:contextInfo:", nil)
     }
@@ -64,7 +65,9 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         selected_Image.image = image
+        actionbtn.enabled = true
         self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         print("Canceled")
@@ -94,7 +97,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifiations()
-
+        actionbtn.enabled = false
         
         if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)){
             camaraBtn.enabled = true
@@ -149,6 +152,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     func restall()
     {
+        actionbtn.enabled = true
         textFieldBottom.text = "BOTTOM"
         textFieldTop.text = "TOP"
         selected_Image.image = nil

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MeemObject:NSObject {
+struct MeemObject {
     var topText:String?
     var bottomText:String?
     var originalImage:UIImage!

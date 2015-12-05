@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -130,22 +131,22 @@
                                 <exclude reference="eMb-iO-gNG"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="HSx-7f-jqp"/>
-                                <exclude reference="QDC-eQ-Z9e"/>
-                                <exclude reference="ad7-zS-jIa"/>
-                                <exclude reference="AxE-vx-eaK"/>
-                                <exclude reference="N1e-Fm-cy9"/>
-                                <exclude reference="d6B-r7-PHm"/>
+                                <exclude reference="den-Dh-kCF"/>
+                                <exclude reference="6g9-7o-vXp"/>
+                                <exclude reference="Urb-NB-RKg"/>
                                 <exclude reference="Uck-um-I7A"/>
                                 <exclude reference="YHG-RX-Brg"/>
                                 <exclude reference="lDU-Yz-7Lv"/>
-                                <exclude reference="6g9-7o-vXp"/>
-                                <exclude reference="Urb-NB-RKg"/>
+                                <exclude reference="HSx-7f-jqp"/>
+                                <exclude reference="QDC-eQ-Z9e"/>
+                                <exclude reference="ad7-zS-jIa"/>
                                 <exclude reference="OVk-tT-Qqz"/>
                                 <exclude reference="Sd3-Zg-U6p"/>
                                 <exclude reference="Xqx-Ib-Dzh"/>
                                 <exclude reference="o2T-tM-zoZ"/>
-                                <exclude reference="den-Dh-kCF"/>
+                                <exclude reference="AxE-vx-eaK"/>
+                                <exclude reference="N1e-Fm-cy9"/>
+                                <exclude reference="d6B-r7-PHm"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -157,27 +158,28 @@
                                 <include reference="eMb-iO-gNG"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="HSx-7f-jqp"/>
-                                <include reference="QDC-eQ-Z9e"/>
-                                <include reference="ad7-zS-jIa"/>
-                                <include reference="AxE-vx-eaK"/>
-                                <include reference="N1e-Fm-cy9"/>
-                                <include reference="d6B-r7-PHm"/>
+                                <include reference="den-Dh-kCF"/>
+                                <include reference="6g9-7o-vXp"/>
+                                <include reference="Urb-NB-RKg"/>
                                 <include reference="Uck-um-I7A"/>
                                 <include reference="YHG-RX-Brg"/>
                                 <include reference="lDU-Yz-7Lv"/>
-                                <include reference="6g9-7o-vXp"/>
-                                <include reference="Urb-NB-RKg"/>
+                                <include reference="HSx-7f-jqp"/>
+                                <include reference="QDC-eQ-Z9e"/>
+                                <include reference="ad7-zS-jIa"/>
                                 <include reference="OVk-tT-Qqz"/>
                                 <include reference="Sd3-Zg-U6p"/>
                                 <include reference="Xqx-Ib-Dzh"/>
                                 <include reference="o2T-tM-zoZ"/>
-                                <include reference="den-Dh-kCF"/>
+                                <include reference="AxE-vx-eaK"/>
+                                <include reference="N1e-Fm-cy9"/>
+                                <include reference="d6B-r7-PHm"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="Bottomtoolbar" destination="sk0-jV-q5f" id="NHf-ha-rhq"/>
+                        <outlet property="actionbtn" destination="JdS-VH-A1s" id="oDR-tg-5HQ"/>
                         <outlet property="camaraBtn" destination="w0g-d7-2Ej" id="Bg8-MY-mUj"/>
                         <outlet property="selected_Image" destination="eMb-iO-gNG" id="Y30-8p-X1V"/>
                         <outlet property="textFieldBottom" destination="fey-0e-6k7" id="ynz-h5-s15"/>

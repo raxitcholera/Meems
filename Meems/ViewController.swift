@@ -31,7 +31,9 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         
         let img = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [img], applicationActivities: nil)
-        self.presentViewController(controller, animated: true, completion: nil)
+//        controller.completionWithItemsHandler
+         presentViewController(controller, animated: true, completion: nil)
+        
         
     }
     func save() {
@@ -57,11 +59,11 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     func hideToolBar(show:Bool)
     {
-        self.toptoolbar.hidden = show
-        self.Bottomtoolbar.hidden = show
+         toptoolbar.hidden = show
+         Bottomtoolbar.hidden = show
     }
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        self.selected_Image.image = image
+        selected_Image.image = image
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -71,8 +73,8 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.textFieldTop.text = "TOP"
-        self.textFieldBottom.text = "BOTTOM"
+        textFieldTop.text = "TOP"
+        textFieldBottom.text = "BOTTOM"
         textFieldBottom.delegate = self
         textFieldTop.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
@@ -106,17 +108,25 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         self.view.frame.origin.y = 0
-        return true;
+        return true
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        if textField.text == "TOP" || textField.text == "BOTTOM" {
+        if textField.text == "TOP" || textField.text == "BOTTOM" || textField.text == "ENTER Comments or _" {
         textField.text = ""
+        }
+    }
+    func textFieldDidEndEditing(textField: UITextField) {
+        if textField.text == ""{
+            textField.text = "ENTER Comments or _"
         }
     }
     
     func keyboardWillShow (notification:NSNotification) {
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
+        self.view.frame.origin.y = -(getKeyboardHeight(notification))
+    }
+    func keyboardWillHide (notification:NSNotification) {
+        self.view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification:NSNotification) -> CGFloat {
@@ -128,17 +138,20 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     func subscribeToKeyboardNotifiations() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
     func unsubscribeToKeyboardNotifiations() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+
     }
     
     func restall()
     {
-        self.textFieldBottom.text = "BOTTOM"
-        self.textFieldTop.text = "TOP"
-        self.selected_Image.image = nil
+        textFieldBottom.text = "BOTTOM"
+        textFieldTop.text = "TOP"
+        selected_Image.image = nil
     }
 
 

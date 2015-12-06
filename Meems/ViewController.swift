@@ -11,23 +11,25 @@ import UIKit
 class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
 
     @IBOutlet weak var actionbtn: UIBarButtonItem!
-    @IBOutlet weak var selected_Image: UIImageView!
-    
-    @IBOutlet weak var toptoolbar: UIToolbar!
+    @IBOutlet weak var selected_Image: UIImageView!    
+    @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var Bottomtoolbar: UIToolbar!
     @IBOutlet weak var textFieldBottom: UITextField!
     @IBOutlet weak var textFieldTop: UITextField!
     @IBOutlet weak var camaraBtn: UIBarButtonItem!
+    
     @IBAction func pickan_image(sender: AnyObject) {
 
         presentViewWithSource(UIImagePickerControllerSourceType.PhotoLibrary)
       
     }
+    
     @IBAction func pickfrom_camara(sender: AnyObject) {
 
         presentViewWithSource(UIImagePickerControllerSourceType.Camera)
         
     }
+    
     @IBAction func actionBtnClicked(sender: AnyObject) {
         
         let img = generateMemedImage()
@@ -37,20 +39,23 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         
         
     }
+    
     func save() {
-        let meemObj = MeemObject(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: self.selected_Image.image!, memedImage: generateMemedImage())
+        let meemObj = MeemObject(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: selected_Image.image!, memedImage: generateMemedImage())
         
         //        UIImageWriteToSavedPhotosAlbum(generateMemedImage(), self, "image:didFinishSavingWithError:contextInfo:", nil)
     }
+    
     @IBAction func reseteverything(sender: AnyObject) {
         restall()
     }
+    
     func generateMemedImage() -> UIImage {
         
         hideToolBar(true)
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame,
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame,
             afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
@@ -58,20 +63,23 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         hideToolBar(false)
         return memedImage
     }
+    
     func hideToolBar(show:Bool)
     {
-         toptoolbar.hidden = show
+         topToolbar.hidden = show
          Bottomtoolbar.hidden = show
     }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         selected_Image.image = image
         actionbtn.enabled = true
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
         
     }
+    
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
         print("Canceled")
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -80,6 +88,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         textFieldBottom.text = "BOTTOM"
         textFieldBottom.delegate = self
         textFieldTop.delegate = self
+        actionbtn.enabled = false
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -87,22 +96,25 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         super.viewWillDisappear(animated)
         unsubscribeToKeyboardNotifiations()
     }
+    
     func presentViewWithSource(source:UIImagePickerControllerSourceType)
     {
         let presentView  = UIImagePickerController()
         presentView.delegate = self
         presentView.sourceType = source
-        self.presentViewController(presentView, animated: true, completion: nil)
+        presentViewController(presentView, animated: true, completion: nil)
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifiations()
-        actionbtn.enabled = false
+        
         
         if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)){
             camaraBtn.enabled = true
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -110,7 +122,6 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        self.view.frame.origin.y = 0
         return true
     }
     
@@ -119,6 +130,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         textField.text = ""
         }
     }
+    
     func textFieldDidEndEditing(textField: UITextField) {
         if textField.text == ""{
             textField.text = "ENTER Comments or _"
@@ -126,10 +138,13 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     }
     
     func keyboardWillShow (notification:NSNotification) {
-        self.view.frame.origin.y = -(getKeyboardHeight(notification))
+        if textFieldBottom.editing {
+        view.frame.origin.y = -(getKeyboardHeight(notification))
+        }
     }
+    
     func keyboardWillHide (notification:NSNotification) {
-        self.view.frame.origin.y = 0
+        view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification:NSNotification) -> CGFloat {
@@ -152,7 +167,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     
     func restall()
     {
-        actionbtn.enabled = true
+        actionbtn.enabled = false
         textFieldBottom.text = "BOTTOM"
         textFieldTop.text = "TOP"
         selected_Image.image = nil

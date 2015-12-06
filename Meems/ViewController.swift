@@ -34,7 +34,12 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         
         let img = generateMemedImage()
         let controller = UIActivityViewController(activityItems: [img], applicationActivities: nil)
-//        controller.completionWithItemsHandler
+       
+        controller.completionWithItemsHandler = {
+            (activity, success, items, error) in
+            print("Activity: \(activity) Success: \(success) Items: \(items) Error: \(error)")
+            if(success) { self.save() }
+        }
          presentViewController(controller, animated: true, completion: nil)
         
         
@@ -43,7 +48,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     func save() {
         let meemObj = MeemObject(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: selected_Image.image!, memedImage: generateMemedImage())
         
-        //        UIImageWriteToSavedPhotosAlbum(generateMemedImage(), self, "image:didFinishSavingWithError:contextInfo:", nil)
+//        UIImageWriteToSavedPhotosAlbum(generateMemedImage(), self,"image:didFinishSavingWithError:contextInfo:", nil)
     }
     
     @IBAction func reseteverything(sender: AnyObject) {

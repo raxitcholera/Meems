@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate {
+class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var actionbtn: UIBarButtonItem!
     @IBOutlet weak var selected_Image: UIImageView!    
@@ -48,7 +48,10 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
     func save() {
         let meemObj = MeemObject(topText: textFieldTop.text!, bottomText: textFieldBottom.text!, originalImage: selected_Image.image!, memedImage: generateMemedImage())
         
-//        UIImageWriteToSavedPhotosAlbum(generateMemedImage(), self,"image:didFinishSavingWithError:contextInfo:", nil)
+        let object = UIApplication.sharedApplication().delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meemObj)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func reseteverything(sender: AnyObject) {
@@ -176,6 +179,14 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         textFieldBottom.text = "BOTTOM"
         textFieldTop.text = "TOP"
         selected_Image.image = nil
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func openInEditMode(editmeem:MeemObject) {
+        selected_Image.image = editmeem.originalImage
+        actionbtn.enabled = true
+        textFieldBottom.text = editmeem.bottomText
+        textFieldTop.text = editmeem.topText
     }
 
 

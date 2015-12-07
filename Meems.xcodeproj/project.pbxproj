@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0278BD8A1C160BEB007E36D7 /* tableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0278BD891C160BEB007E36D7 /* tableViewController.swift */; };
+		0278BD8C1C160F19007E36D7 /* collectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0278BD8B1C160F19007E36D7 /* collectionViewController.swift */; };
+		0278BD8F1C161ACE007E36D7 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0278BD8D1C161ACE007E36D7 /* CollectionViewCell.swift */; };
+		0278BD921C16233E007E36D7 /* ViewMeem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0278BD911C16233E007E36D7 /* ViewMeem.swift */; };
 		02A089251C0D766900FF28F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A089241C0D766900FF28F9 /* AppDelegate.swift */; };
 		02A089271C0D766900FF28F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A089261C0D766900FF28F9 /* ViewController.swift */; };
 		02A0892A1C0D766900FF28F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02A089281C0D766900FF28F9 /* Main.storyboard */; };
@@ -35,6 +39,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0278BD891C160BEB007E36D7 /* tableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tableViewController.swift; sourceTree = "<group>"; };
+		0278BD8B1C160F19007E36D7 /* collectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectionViewController.swift; sourceTree = "<group>"; };
+		0278BD8D1C161ACE007E36D7 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		0278BD911C16233E007E36D7 /* ViewMeem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMeem.swift; sourceTree = "<group>"; };
 		02A089211C0D766900FF28F9 /* Meems.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meems.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02A089241C0D766900FF28F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02A089261C0D766900FF28F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -106,6 +114,10 @@
 				02A0892B1C0D766900FF28F9 /* Assets.xcassets */,
 				02A0892D1C0D766900FF28F9 /* LaunchScreen.storyboard */,
 				02A089301C0D766900FF28F9 /* Info.plist */,
+				0278BD891C160BEB007E36D7 /* tableViewController.swift */,
+				0278BD8B1C160F19007E36D7 /* collectionViewController.swift */,
+				0278BD8D1C161ACE007E36D7 /* CollectionViewCell.swift */,
+				0278BD911C16233E007E36D7 /* ViewMeem.swift */,
 			);
 			path = Meems;
 			sourceTree = "<group>";
@@ -261,8 +273,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				02A3E5661C0F4668001D70BB /* meemObjectClass.swift in Sources */,
+				0278BD921C16233E007E36D7 /* ViewMeem.swift in Sources */,
+				0278BD8C1C160F19007E36D7 /* collectionViewController.swift in Sources */,
+				0278BD8F1C161ACE007E36D7 /* CollectionViewCell.swift in Sources */,
 				02A089271C0D766900FF28F9 /* ViewController.swift in Sources */,
 				02A089251C0D766900FF28F9 /* AppDelegate.swift in Sources */,
+				0278BD8A1C160BEB007E36D7 /* tableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -299,23 +299,38 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lnX-mi-I6T">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                             <animations/>
-                                            <variation key="widthClass=compact" fixedFrame="YES">
-                                                <rect key="frame" x="9" y="10" width="148" height="101"/>
-                                            </variation>
                                         </imageView>
                                     </subviews>
                                     <animations/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <animations/>
+                                <constraints>
+                                    <constraint firstItem="lnX-mi-I6T" firstAttribute="centerX" secondItem="rkT-V5-3Be" secondAttribute="centerX" id="QI6-S2-f3B"/>
+                                    <constraint firstItem="lnX-mi-I6T" firstAttribute="leading" secondItem="rkT-V5-3Be" secondAttribute="leadingMargin" constant="1" id="gJ5-PF-ij0"/>
+                                    <constraint firstItem="lnX-mi-I6T" firstAttribute="centerY" secondItem="rkT-V5-3Be" secondAttribute="centerY" id="jAP-Aa-Oo4"/>
+                                    <constraint firstItem="lnX-mi-I6T" firstAttribute="top" secondItem="rkT-V5-3Be" secondAttribute="topMargin" constant="2" id="pEc-6I-jx5"/>
+                                </constraints>
                                 <variation key="default">
                                     <mask key="subviews">
                                         <exclude reference="lnX-mi-I6T"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <exclude reference="QI6-S2-f3B"/>
+                                        <exclude reference="gJ5-PF-ij0"/>
+                                        <exclude reference="jAP-Aa-Oo4"/>
+                                        <exclude reference="pEc-6I-jx5"/>
                                     </mask>
                                 </variation>
                                 <variation key="widthClass=compact">
                                     <mask key="subviews">
                                         <include reference="lnX-mi-I6T"/>
+                                    </mask>
+                                    <mask key="constraints">
+                                        <include reference="QI6-S2-f3B"/>
+                                        <include reference="gJ5-PF-ij0"/>
+                                        <include reference="jAP-Aa-Oo4"/>
+                                        <include reference="pEc-6I-jx5"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -335,6 +350,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="flowLayout" destination="kao-M1-ysp" id="epV-rB-7wv"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IhG-lR-UwX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -14,8 +14,15 @@ class collectionViewController : UICollectionViewController {
     var memes: [MeemObject] {
         return (UIApplication.sharedApplication().delegate as! AppDelegate).memes
     }
+    @IBOutlet weak var flowLayout:UICollectionViewFlowLayout!
+    
     override func viewDidLoad() {
         self.title = "Meems Collection View"
+        let space:CGFloat = 3.0
+        let dimention = (self.view.frame.width - (2 * space )) / 3.0
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSizeMake(dimention, dimention)
     }
     override func viewWillAppear(animated: Bool) {
         collectionView?.reloadData()

@@ -54,4 +54,17 @@ class tableViewController:UITableViewController {
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+            var allMeems: [MeemObject] = appDel.memes
+            allMeems.removeAtIndex(indexPath.row)
+            appDel.memes = allMeems
+            tableView.reloadData()
+        }
+    }
 }

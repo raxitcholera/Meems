@@ -376,24 +376,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ODY-MC-xqc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ODY-MC-xqc">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
-                                <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="20" width="360" height="560"/>
-                                </variation>
                             </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rQc-Z4-BQ0" firstAttribute="top" secondItem="ODY-MC-xqc" secondAttribute="bottom" constant="20" id="QxH-bO-xsu"/>
+                            <constraint firstItem="ODY-MC-xqc" firstAttribute="leading" secondItem="cCD-sQ-492" secondAttribute="leadingMargin" id="kiN-mM-hbp"/>
+                            <constraint firstItem="ODY-MC-xqc" firstAttribute="top" secondItem="TwZ-XM-tpV" secondAttribute="bottom" id="m7E-JL-ZCM"/>
+                            <constraint firstItem="ODY-MC-xqc" firstAttribute="trailing" secondItem="cCD-sQ-492" secondAttribute="trailingMargin" id="x5g-FE-7WU"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ODY-MC-xqc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="kiN-mM-hbp"/>
+                                <exclude reference="m7E-JL-ZCM"/>
+                                <exclude reference="x5g-FE-7WU"/>
+                                <exclude reference="QxH-bO-xsu"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="ODY-MC-xqc"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="kiN-mM-hbp"/>
+                                <include reference="m7E-JL-ZCM"/>
+                                <include reference="x5g-FE-7WU"/>
+                                <include reference="QxH-bO-xsu"/>
                             </mask>
                         </variation>
                     </view>

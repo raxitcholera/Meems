@@ -17,7 +17,7 @@ class collectionViewController : UICollectionViewController {
     @IBOutlet weak var flowLayout:UICollectionViewFlowLayout!
     
     override func viewDidLoad() {
-        self.title = "Meems Collection View"
+        title = "Meems Collection View"
         let space:CGFloat = 3.0
         let dimention = (self.view.frame.width - (2 * space )) / 3.0
         flowLayout.minimumInteritemSpacing = space

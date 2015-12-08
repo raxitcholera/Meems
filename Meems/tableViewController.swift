@@ -22,7 +22,7 @@ class tableViewController:UITableViewController {
     }
     
     override func viewDidLoad() {
-        self.title = "Meems Table View"
+        title = "Meems Table View"
     }
     
     override func viewWillAppear(animated: Bool) {
